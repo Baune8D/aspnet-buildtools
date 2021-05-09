@@ -26,7 +26,7 @@
     "lint": "eslint \"**/*.js\" --max-warnings=0 --report-unused-disable-directives",
     "test": "jest",
     "preversion": "npm run lint && npm test",
-    "publish": "git push && git push --tags && npm publish"
+    "prepublish": "git push && git push --tags"
   },
   "engines": {
     "node": ">= 14"
