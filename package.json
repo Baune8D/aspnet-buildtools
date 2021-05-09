@@ -1,7 +1,7 @@
 {
   "name": "aspnet-webpack",
   "version": "0.1.0",
-  "description": "Helper functions for Webpack configuration in AspNetWebpack",
+  "description": "Utilities for the Webpack configuration in AspNetWebpack",
   "license": "MIT",
   "repository": "Baune8D/aspnet-webpack",
   "author": "Morten Larsen",
