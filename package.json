@@ -24,7 +24,9 @@
   "scripts": {
     "format": "prettier --loglevel warn --write \"**/*.js\" && eslint --fix \"**/*.js\"",
     "lint": "eslint \"**/*.js\" --max-warnings=0 --report-unused-disable-directives",
-    "test": "jest"
+    "test": "jest",
+    "preversion": "npm run lint && npm test",
+    "publish": "git push && git push --tags && npm publish"
   },
   "engines": {
     "node": ">= 14"
