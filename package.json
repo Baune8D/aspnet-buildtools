@@ -1,12 +1,12 @@
 {
-  "name": "aspnet-webpack",
+  "name": "aspnet-webpack-utils",
   "version": "0.1.0",
   "description": "Utilities for the Webpack configuration in AspNetWebpack",
   "license": "MIT",
-  "repository": "Baune8D/aspnet-webpack",
+  "repository": "Baune8D/aspnet-webpack-utils",
   "author": "Morten Larsen",
-  "homepage": "https://github.com/Baune8D/aspnet-webpack",
-  "bugs": "https://github.com/Baune8D/aspnet-webpack/issues",
+  "homepage": "https://github.com/Baune8D/aspnet-webpack-utils",
+  "bugs": "https://github.com/Baune8D/aspnet-webpack-utils/issues",
   "main": "index.js",
   "dependencies": {
     "glob": "^7.1.7"
