@@ -6,7 +6,10 @@ export function getEntryPoints(context: string): Record<string, string> {
 
   // Get all predefined asset bundles
   const bundleGlob = path.resolve(context, '**/*.bundle.@(js|ts)');
-  const bundles = glob.sync(bundleGlob, { windowsPathsNoEscape: true });
+  const bundles = glob.sync(bundleGlob, {
+    ignore: ['**/node_modules/**'],
+    windowsPathsNoEscape: true,
+  });
 
   bundles.forEach((bundle) => {
     const name = bundle
