@@ -40,7 +40,8 @@
     "format": "prettier --write \"**/*.{ts,mjs}\" && eslint --fix \"**/*.{ts,mjs}\"",
     "lint": "eslint \"**/*.{ts,mjs}\" --max-warnings=0 --report-unused-disable-directives",
     "test": "NODE_NO_WARNINGS=1 node --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "build": "tsc --project tsconfig.json"
+    "build": "rm -rf dist && tsc --project tsconfig.json",
+    "prepublishOnly": "npm run build"
   },
   "engines": {
     "node": ">= 20"
