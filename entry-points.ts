@@ -15,7 +15,7 @@ export function getEntryPoints(context: string): Record<string, string> {
     entries[name] = bundle;
   });
 
-  const ignore = ['**/_*.cshtml', '**/Components/*/*.*'];
+  const ignore = ['**/node_modules/**', '**/_*.cshtml', '**/Components/*/*.*'];
 
   // Find all views and razor pages
   const viewGlob = path.resolve(context, '**/*.cshtml');
