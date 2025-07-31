@@ -1,12 +1,12 @@
 {
-  "name": "aspnet-webpack-utils",
+  "name": "aspnet-buildtools",
   "version": "0.1.0",
-  "description": "Utilities for the Webpack configuration in AspNetWebpack",
+  "description": "Utilities for integrating build tools in ASP.NET projects",
   "license": "MIT",
-  "repository": "Baune8D/aspnet-webpack-utils",
+  "repository": "Baune8D/aspnet-buildtools",
   "author": "Morten Larsen",
-  "homepage": "https://github.com/Baune8D/aspnet-webpack-utils",
-  "bugs": "https://github.com/Baune8D/aspnet-webpack-utils/issues",
+  "homepage": "https://github.com/Baune8D/aspnet-buildtools",
+  "bugs": "https://github.com/Baune8D/aspnet-buildtools/issues",
   "main": "index.js",
   "dependencies": {
     "glob": "^7.1.7"
