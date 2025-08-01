@@ -1,6 +1,6 @@
 {
   "name": "aspnet-buildtools",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Utilities for integrating build tools in ASP.NET projects",
   "license": "MIT",
   "repository": "Baune8D/aspnet-buildtools",
