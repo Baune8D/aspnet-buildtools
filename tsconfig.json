@@ -19,6 +19,5 @@
     "outDir": "dist",
     "strict": true,
     "target": "ES2023"
-  },
-  "exclude": ["*.config.ts", "*.spec.ts"]
+  }
 }

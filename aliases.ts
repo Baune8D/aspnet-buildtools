@@ -1,12 +1,8 @@
 import { glob } from 'glob';
 import path from 'node:path';
 
-export function getAliases(
-  context?: string | undefined,
-): Record<string, string> {
-  if (!context) {
-    context = process.cwd();
-  }
+export function getAliases(context?: string): Record<string, string> {
+  context ??= process.cwd();
 
   // Add aliases for the root folder
   const aliases: Record<string, string> = {
