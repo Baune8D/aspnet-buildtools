@@ -3,7 +3,10 @@
   "version": "0.1.4",
   "description": "Utilities for integrating build tools in ASP.NET projects",
   "license": "MIT",
-  "repository": "Baune8D/aspnet-buildtools",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Baune8D/aspnet-buildtools.git"
+  },
   "author": "Morten Larsen",
   "homepage": "https://github.com/Baune8D/aspnet-buildtools",
   "bugs": "https://github.com/Baune8D/aspnet-buildtools/issues",
