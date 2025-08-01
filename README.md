@@ -1,3 +1,5 @@
-# aspnet-webpack-utils
+# aspnet-buildtools
 
-Utilities for the Webpack configuration in [AspNetWebpack](https://github.com/Baune8D/AspNetWebpack)
+Utilities for integrating modern build tools in ASP.NET projects.
+
+See [AspNet.Frontends](https://github.com/Baune8D/AspNet.Frontends) for examples.
