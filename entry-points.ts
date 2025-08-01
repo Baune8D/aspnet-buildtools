@@ -1,7 +1,13 @@
 import { glob } from 'glob';
 import path from 'node:path';
 
-export function getEntryPoints(context: string): Record<string, string> {
+export function getEntryPoints(
+  context?: string | undefined,
+): Record<string, string> {
+  if (!context) {
+    context = process.cwd();
+  }
+
   const entries = {} as Record<string, string>;
 
   // Get all predefined asset bundles
