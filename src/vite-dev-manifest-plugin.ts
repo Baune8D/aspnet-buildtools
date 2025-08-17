@@ -2,7 +2,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import type { Plugin, ResolvedConfig } from 'vite';
 
-export function viteDevManifestPlugin(): Plugin {
+export function viteDevManifestPlugin(opts: { outDir?: string } = {}): Plugin {
   let config: ResolvedConfig;
 
   async function generateManifest(root: string) {
@@ -36,6 +36,10 @@ export function viteDevManifestPlugin(): Plugin {
 
     if (manifestOut === true) {
       manifestOut = '.vite/manifest.dev.json';
+    }
+
+    if (opts.outDir) {
+      manifestOut = path.join(opts.outDir, manifestOut);
     }
 
     const manifestPath = path.resolve(root, manifestOut);
