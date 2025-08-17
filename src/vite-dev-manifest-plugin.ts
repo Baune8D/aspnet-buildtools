@@ -38,11 +38,8 @@ export function viteDevManifestPlugin(opts: { outDir?: string } = {}): Plugin {
       manifestOut = '.vite/manifest.dev.json';
     }
 
-    if (opts.outDir) {
-      manifestOut = path.join(opts.outDir, manifestOut);
-    }
-
-    const manifestPath = path.resolve(root, manifestOut);
+    opts.outDir ??= 'dist';
+    const manifestPath = path.resolve(root, opts.outDir, manifestOut);
 
     await mkdir(path.dirname(manifestPath), { recursive: true });
     await writeFile(manifestPath, JSON.stringify(manifest, null, 2), 'utf8');
