@@ -2,6 +2,7 @@
 
 import js from '@eslint/js';
 import { importX } from 'eslint-plugin-import-x';
+import jest from 'eslint-plugin-jest';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import { globalIgnores } from 'eslint/config';
 import tseslint from 'typescript-eslint';
@@ -10,6 +11,11 @@ export default tseslint.config(
   globalIgnores(['dist/']),
   js.configs.recommended,
   importX.flatConfigs.recommended,
+  {
+    files: ['**/*.spec.ts'],
+    ...jest.configs['flat/recommended'],
+    ...jest.configs['flat/style'],
+  },
   {
     files: ['**/*.ts'],
     extends: [
