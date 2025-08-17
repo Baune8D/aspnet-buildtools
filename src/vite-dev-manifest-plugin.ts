@@ -1,11 +1,11 @@
-import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import type { Plugin, ResolvedConfig } from 'vite';
 
 export function viteDevManifestPlugin(opts: { outDir?: string } = {}): Plugin {
   let config: ResolvedConfig;
+  let manifestJSON = '{}';
 
-  async function generateManifest(root: string) {
+  function generateManifest(root: string) {
     const entries = config.build.rollupOptions.input;
 
     if (typeof entries !== 'object' || Array.isArray(entries)) {
@@ -27,6 +27,10 @@ export function viteDevManifestPlugin(opts: { outDir?: string } = {}): Plugin {
       };
     }
 
+    manifestJSON = JSON.stringify(manifest, null, 2);
+  }
+
+  function getManifestUrl() {
     let manifestOut = config.build.manifest;
 
     if (manifestOut === false) {
@@ -39,10 +43,7 @@ export function viteDevManifestPlugin(opts: { outDir?: string } = {}): Plugin {
     }
 
     opts.outDir ??= 'dist';
-    const manifestPath = path.resolve(root, opts.outDir, manifestOut);
-
-    await mkdir(path.dirname(manifestPath), { recursive: true });
-    await writeFile(manifestPath, JSON.stringify(manifest, null, 2), 'utf8');
+    return path.join('/', opts.outDir, manifestOut);
   }
 
   return {
@@ -52,8 +53,18 @@ export function viteDevManifestPlugin(opts: { outDir?: string } = {}): Plugin {
       config = resolvedConfig;
     },
     configureServer(server) {
-      generateManifest(config.root).catch((e: unknown) => {
-        server.config.logger.error(e as string);
+      generateManifest(config.root);
+
+      const manifestUrl = getManifestUrl();
+
+      server.middlewares.use((req, res, next) => {
+        if (req.method === 'GET' && req.url === manifestUrl) {
+          res.statusCode = 200;
+          res.setHeader('Content-Type', 'application/json; charset=utf-8');
+          res.end(manifestJSON);
+          return;
+        }
+        next();
       });
     },
   };
