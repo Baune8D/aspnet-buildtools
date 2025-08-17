@@ -19,5 +19,6 @@
     "outDir": "dist",
     "strict": true,
     "target": "ES2023"
-  }
+  },
+  "include": ["**/*.ts"]
 }
