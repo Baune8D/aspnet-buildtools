@@ -1,7 +1,7 @@
 import path from 'node:path';
 import type { Plugin, ResolvedConfig } from 'vite';
 
-export function viteDevManifestPlugin(opts: { outDir?: string } = {}): Plugin {
+export function viteDevManifestPlugin(): Plugin {
   let config: ResolvedConfig;
   let manifestJSON = '{}';
 
@@ -42,8 +42,7 @@ export function viteDevManifestPlugin(opts: { outDir?: string } = {}): Plugin {
       manifestOut = '.vite/manifest.dev.json';
     }
 
-    opts.outDir ??= 'dist';
-    return path.join('/', opts.outDir, manifestOut);
+    return path.join('/', manifestOut);
   }
 
   return {
