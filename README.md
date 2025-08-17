@@ -4,32 +4,62 @@ Utilities for integrating modern build tools in ASP.NET projects.
 
 See [AspNet.Frontends](https://github.com/Baune8D/AspNet.Frontends) for examples.
 
+## Vite
+
+### Basic configuration example:
+
+```javascript
+import { viteConfig } from 'aspnet-buildtools';
+import { defineConfig } from 'vite'
+
+export default defineConfig({
+  ...viteConfig,
+  // More Vite configuration
+});
+```
+
+### Custom configuration example:
+
+```javascript
+import { getAliases, getEntryPoints, viteDevManifestPlugin } from 'aspnet-buildtools';
+import { defineConfig } from 'vite'
+
+export default defineConfig({
+  ...viteConfig,
+  build: {
+    rollupOptions: {
+      input: getEntryPoints(),
+    },
+    resolve: {
+      alias: getAliases(),
+    },
+    plugins: [viteDevManifestPlugin()],
+  },
+});
+```
+
 ## Webpack
 
-Import basic Webpack configuration using:
+### Basic configuration example:
+
 ```javascript
 import { webpackConfig } from 'aspnet-buildtools';
 
 export default {
-  ...webpackConfig(),
-  // More Webpack configuration here
+  ...webpackConfig,
+  // More Webpack configuration
 }
 ```
 
-A build context can optionally be passed to `webpackConfig`, `process.cwd()` will be used as default.
-
-For more advanced configurations it might be easier to  configure it manually:
+### Custom configuration example:
 
 ```javascript
-import { getEntryPoints } from 'aspnet-buildtools';
-import { getAliases } from 'aspnet-buildtools';
-
-const context = process.cwd();
+import { getAliases, getEntryPoints } from 'aspnet-buildtools';
 
 export default {
-  context: context,
-  entry: getEntryPoints(context),
+  entry: getEntryPoints(),
   resolve: {
-    alias: getAliases(context),
+    alias: getAliases(),
   },
 };
+```
