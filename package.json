@@ -7,7 +7,7 @@
     "type": "git",
     "url": "git+https://github.com/Baune8D/aspnet-buildtools.git"
   },
-  "author": "Morten Larsen",
+  "author": "Baune8D",
   "homepage": "https://github.com/Baune8D/aspnet-buildtools",
   "bugs": "https://github.com/Baune8D/aspnet-buildtools/issues",
   "main": "dist/index.js",
