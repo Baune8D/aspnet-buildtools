@@ -10,7 +10,7 @@ See [AspNet.Frontends](https://github.com/Baune8D/AspNet.Frontends) for examples
 
 ```javascript
 import { viteConfig } from 'aspnet-buildtools';
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vite';
 
 export default defineConfig({
   ...viteConfig,
@@ -21,8 +21,12 @@ export default defineConfig({
 ### Custom configuration example:
 
 ```javascript
-import { getAliases, getEntryPoints, viteDevManifestPlugin } from 'aspnet-buildtools';
-import { defineConfig } from 'vite'
+import {
+  getAliases,
+  getEntryPoints,
+  viteDevManifestPlugin,
+} from 'aspnet-buildtools';
+import { defineConfig } from 'vite';
 
 export default defineConfig({
   ...viteConfig,
@@ -48,7 +52,7 @@ import { webpackConfig } from 'aspnet-buildtools';
 export default {
   ...webpackConfig,
   // More Webpack configuration
-}
+};
 ```
 
 ### Custom configuration example:
