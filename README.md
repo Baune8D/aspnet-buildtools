@@ -31,7 +31,7 @@ import { defineConfig } from 'vite';
 export default defineConfig({
   ...viteConfig,
   build: {
-    rollupOptions: {
+    rolldownOptions: {
       input: getEntryPoints(),
     },
     resolve: {

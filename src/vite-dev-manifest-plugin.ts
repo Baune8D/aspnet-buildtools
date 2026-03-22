@@ -10,7 +10,7 @@ export function viteDevManifestPlugin(): Plugin {
 
     if (typeof entries !== 'object' || Array.isArray(entries)) {
       console.warn(
-        '[dev-manifest] build.rollupOptions.input should be an object.',
+        '[dev-manifest] build.rolldownOptions.input should be an object.',
       );
       return;
     }

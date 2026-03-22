@@ -7,7 +7,7 @@ const cwd = process.cwd();
 
 export const viteConfig = {
   build: {
-    rollupOptions: {
+    rolldownOptions: {
       input: getEntryPoints(cwd),
     },
   },
