@@ -6,7 +6,7 @@ export function viteDevManifestPlugin(): Plugin {
   let manifestJSON = '{}';
 
   function generateManifest(root: string) {
-    const entries = config.build.rollupOptions.input;
+    const entries = config.build.rolldownOptions.input;
 
     if (typeof entries !== 'object' || Array.isArray(entries)) {
       console.warn(
