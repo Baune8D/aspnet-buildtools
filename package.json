@@ -1,16 +1,30 @@
 {
   "name": "aspnet-buildtools",
   "version": "0.3.1",
-  "description": "Utilities for integrating modern build tools in ASP.NET projects",
+  "description": "Vite and Webpack entry points and import aliases generated from ASP.NET Core Razor views",
+  "keywords": [
+    "aspnetcore",
+    "asp.net",
+    "razor",
+    "razor-pages",
+    "mvc",
+    "vite",
+    "vite-plugin",
+    "webpack",
+    "entry-points",
+    "aliases",
+    "dotnet"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Baune8D/aspnet-buildtools.git"
   },
   "author": "Baune8D",
-  "homepage": "https://github.com/Baune8D/aspnet-buildtools",
+  "homepage": "https://github.com/Baune8D/aspnet-buildtools#readme",
   "bugs": "https://github.com/Baune8D/aspnet-buildtools/issues",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "type": "module",
   "files": [
     "dist/**/**",
