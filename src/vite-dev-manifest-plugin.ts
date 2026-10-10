@@ -1,7 +1,17 @@
 import path from 'node:path';
-import type { Plugin, ResolvedConfig } from 'vite';
+import type { Plugin, ResolvedConfig, ViteDevServer } from 'vite';
 
-export function viteDevManifestPlugin(): Plugin {
+// The declared return type avoids Vite's types, so the package's type declarations
+// don't require Vite in projects that only use webpack. It is compatible with Vite's
+// `Plugin`, which the implementation below is checked against.
+export interface DevManifestPlugin {
+  name: string;
+  apply: 'serve';
+  configResolved(config: unknown): void;
+  configureServer(server: unknown): void;
+}
+
+export function viteDevManifestPlugin(): DevManifestPlugin {
   let config: ResolvedConfig;
   let manifestJSON = '{}';
 
@@ -45,13 +55,13 @@ export function viteDevManifestPlugin(): Plugin {
     return path.join('/', manifestOut);
   }
 
-  return {
+  const plugin = {
     name: 'dev-manifest',
     apply: 'serve', // dev only
-    configResolved(resolvedConfig) {
+    configResolved(resolvedConfig: ResolvedConfig) {
       config = resolvedConfig;
     },
-    configureServer(server) {
+    configureServer(server: ViteDevServer) {
       generateManifest(config.root);
 
       const manifestUrl = getManifestUrl();
@@ -66,5 +76,7 @@ export function viteDevManifestPlugin(): Plugin {
         next();
       });
     },
-  };
+  } satisfies Plugin;
+
+  return plugin;
 }
