@@ -24,3 +24,9 @@ jobs:
       - run: npm run lint
       - run: npm test
       - run: npm run build
+      - name: Check that type declarations don't require Vite
+        run: |
+          if grep -l "vite['\"]" dist/*.d.ts; then
+            echo "Type declarations must not import 'vite'; webpack projects don't install it."
+            exit 1
+          fi
