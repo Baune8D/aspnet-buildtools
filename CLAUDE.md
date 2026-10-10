@@ -66,6 +66,11 @@ Use these sections, omitting empty ones, and end with a compare link:
 - `tsconfig.build.json` must set `rootDir: "src"`; without it TypeScript 6 writes the output to `dist/src/` and breaks `main`.
 - After a dependency upgrade, compare `dist/` with the previous build to confirm the output didn't change.
 
+## Type declarations
+
+- The published `.d.ts` files must not import `vite` or `webpack`: projects only install one of them, and a missing module breaks type checking unless the project sets `skipLibCheck`. CI checks this for Vite.
+- `viteDevManifestPlugin` therefore declares its own `DevManifestPlugin` return type. The implementation is checked against Vite's `Plugin` with `satisfies`, and `viteConfig` against `UserConfig`.
+
 ## Behavior to keep in mind
 
 - `viteConfig` and `webpackConfig` are built from `process.cwd()` when the module is loaded. The functions take an optional `context` instead.
