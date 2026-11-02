@@ -1,6 +1,6 @@
 {
   "name": "aspnet-buildtools",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Vite and Webpack entry points and import aliases generated from ASP.NET Core Razor views",
   "keywords": [
     "aspnetcore",
