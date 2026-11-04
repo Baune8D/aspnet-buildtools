@@ -1,8 +1,8 @@
 # aspnet-buildtools
 
+[![CI](https://github.com/Baune8D/aspnet-buildtools/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Baune8D/aspnet-buildtools/actions/workflows/ci.yml)
 [![npm version](https://img.shields.io/npm/v/aspnet-buildtools)](https://www.npmjs.com/package/aspnet-buildtools)
 [![npm downloads](https://img.shields.io/npm/dm/aspnet-buildtools)](https://www.npmjs.com/package/aspnet-buildtools)
-[![CI](https://github.com/Baune8D/aspnet-buildtools/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Baune8D/aspnet-buildtools/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/github/license/Baune8D/aspnet-buildtools)](https://github.com/Baune8D/aspnet-buildtools/blob/main/LICENSE)
 
 **Vite and Webpack configuration for ASP.NET Core MVC and Razor Pages.** aspnet-buildtools scans your project for Razor views and creates one entry point per view, plus import aliases for the project root and each area. Put an `Index.cshtml.js` next to `Views/Home/Index.cshtml` and it becomes the `Views_Home_Index` bundle.
